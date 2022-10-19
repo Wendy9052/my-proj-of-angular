@@ -1,0 +1,52 @@
+<nz-layout class="note-container">
+    <nz-sider nzWidth="240px">
+        <div>
+            <ul nz-menu nzMode="inline" style="width: 240px;" nzTheme='dark'>
+                <li nz-submenu nzOpen nzTitle="NoteBook" nzIcon="mail">
+                    <ul>
+                        <a routerLink="/note/read-note">
+                            <li nz-menu-item [nzSelected]="selected(Keys.ReadingNotes)"
+                                (click)="onSelected(MenuUrl.ReadingNotes,Keys.ReadingNotes)">
+                                <span nz-icon nzType="file"></span>
+                                <span>Reading notes</span>
+                            </li>
+                        </a>
+                        <a routerLink="/note/movie-note">
+                            <li nz-menu-item [nzSelected]="selected(Keys.MovieNotes)"
+                                (click)="onSelected(MenuUrl.MovieNotes,Keys.MovieNotes)">
+                                <span nz-icon nzType="file"></span>
+                                <span>Movie notes</span>
+                            </li>
+                        </a>
+                    </ul>
+                </li>
+                <li nz-submenu nzTitle="Navigation Two" nzIcon="appstore">
+                    <ul>
+                        <li nz-menu-item>Option 5</li>
+                        <li nz-menu-item>Option 6</li>
+                        <li nz-submenu nzTitle="Submenu">
+                            <ul>
+                                <li nz-menu-item>Option 7</li>
+                                <li nz-menu-item>Option 8</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li nz-submenu nzTitle="Navigation Three" nzIcon="setting">
+                    <ul>
+                        <li nz-menu-item>Option 9</li>
+                        <li nz-menu-item>Option 10</li>
+                        <li nz-menu-item>Option 11</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nz-sider>
+    <nz-content>
+        <nz-tabset [(nzSelectedIndex)]="selectedIndex" (nzSelectedIndexChange)="onSelectedChanged($event)" nzType="editable-card" (nzClose)="closeTab($event)">
+            <nz-tab *ngFor="let tab of tabs" nzClosable [nzTitle]="tab">
+                <router-outlet></router-outlet>
+            </nz-tab>
+        </nz-tabset>
+    </nz-content>
+</nz-layout>

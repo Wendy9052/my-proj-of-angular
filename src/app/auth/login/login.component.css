@@ -1,0 +1,34 @@
+nz-content {
+    width: 100%;
+    height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-box {
+    background: #001529;
+    padding: 20px;
+}
+
+.icon-box {
+    /* background: pink; */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.login-form-margin {
+    margin-bottom: 16px;
+}
+
+.login-form-forgot {
+    float: right;
+}
+
+.login-form-button {
+    width: 100%;
+}
+
+[nz-input] {
+    width: 300px;
+}

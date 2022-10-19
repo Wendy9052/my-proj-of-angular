@@ -1,0 +1,12 @@
+.note-container {
+    width: 100%;
+    height: calc(100vh - 64px);
+}
+
+nz-content {
+    padding: 15px;
+}
+
+.note-container ::ng-deep .ant-tabs > .ant-tabs-nav .ant-tabs-nav-add {
+    display: none !important;
+}

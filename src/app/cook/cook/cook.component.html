@@ -1,0 +1,22 @@
+<div class="cook-container">
+  <button nz-button [nzType]="'primary'" (click)="showModal()"><span>Show Modal</span></button>
+  <div>
+    <nz-select nzShowSearch  style="width: 150px" nzPlaceHolder="请选择省份/自治区" [(ngModel)]="selectedProvince" (ngModelChange)="provinceChange($event)">
+      <nz-option *ngFor="let p of provinceData" [nzValue]="p.label" [nzLabel]="p.label"></nz-option>
+    </nz-select>&nbsp;
+    <nz-select nzShowSearch  style="width: 150px" nzPlaceHolder="请选择市" [(ngModel)]="selectedCity" (ngModelChange)="CityChange($event)">
+      <nz-option *ngFor="let c of cityData" [nzValue]="c.label" [nzLabel]="c.label"></nz-option>
+    </nz-select>&nbsp;
+    <nz-select nzShowSearch  style="width: 150px" nzPlaceHolder="请选择区域" [(ngModel)]="selectedArea">
+      <nz-option *ngFor="let a of AreaData" [nzValue]="a.label" [nzLabel]="a.label"></nz-option>
+    </nz-select>
+  </div>
+
+  <nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+      <p>Content one</p>
+      <p>Content two</p>
+      <p>Content three</p>
+    </ng-container>
+  </nz-modal>
+</div>

@@ -1,0 +1,33 @@
+<div class="reading-note">
+    <div class="ipt-box">
+        <input nz-input [(ngModel)]="searchValue" placeholder="default size" nzSize="default" />
+        <button nz-button nzType="primary" (click)="onSearch()">Search</button>
+    </div>
+    <div>
+        <nz-table #nzTable [nzData]="listOfData" [nzPageSize]="8" nzTableLayout="fixed">
+            <thead>
+                <tr>
+                    <th nzWidth="60px"></th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let data of nzTable.data">
+                    <tr>
+                        <td [nzExpand]="expandSet.has(data.id)" (nzExpandChange)="onExpandChange(data.id, $event)"></td>
+                        <td>{{ data.title }}</td>
+                        <td>{{ data.auth }}</td>
+                        <td>{{ data.date }}</td>
+                        <td><a (click)="startEdit(data.id)">Edit</a></td>
+                    </tr>
+                    <tr [nzExpand]="expandSet.has(data.id)">
+                        <span>{{ data.note }}</span>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </nz-table>
+    </div>
+</div>

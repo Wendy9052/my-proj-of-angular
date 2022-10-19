@@ -1,0 +1,36 @@
+<div class="bar-container">
+    <div class="left-container">
+        <div class="icon-box">
+            <span nz-icon nzType="aliwangwang" style="font-size: 50px;" nzTheme="outline"></span>
+        </div>
+        <div class="nav-button nav-note" [class.nav-class-active]="navActive === 1" (click)="toNote()">NOTE</div>
+        <div class="nav-button nav-zone" [class.nav-class-active]="navActive === 2" (click)="toZone()">ZONE</div>
+        <div class="nav-button nav-hobby" [class.nav-class-active]="navActive === 3" (click)="toHobby()">HOBBY</div>
+        <div class="nav-button nav-cook" [class.nav-class-active]="navActive === 4" (click)="toCook()">COOK</div>
+    </div>
+    <div class="right-container">
+
+        <div>
+            <ng-container>
+                <div class="img-box" nz-dropdown [nzDropdownMenu]="menu" [nzPlacement]="'bottomRight'">
+                    <img src="../../../assets/img/default.jpg" alt="">
+                </div>
+                <nz-dropdown-menu #menu="nzDropdownMenu">
+                    <ul class="hover-menu" nz-menu>
+                        <li nz-menu-item><span nz-icon nzType="user" nzTheme="outline" style="margin-right: 10px;"></span>个人中心</li>
+                        <!-- <li nz-menu-item>我的主页</li>
+                        <li nz-menu-item>我的首页</li>
+                        <li nz-menu-item>我的收藏</li>
+                        <li nz-menu-item>账号与资料</li>
+                        <nz-divider></nz-divider> -->
+                        <li nz-menu-item (click)="logout()"><span nz-icon nzType="logout" nzTheme="outline" style="margin-right: 10px;"></span> 退出登录</li>
+                    </ul>
+                </nz-dropdown-menu>
+            </ng-container>
+        </div>
+        <!-- <div (click)="logout()">
+            <span nz-icon nzType="logout" nzTheme="outline"></span>
+            <span>退出</span>
+        </div> -->
+    </div>
+</div>
