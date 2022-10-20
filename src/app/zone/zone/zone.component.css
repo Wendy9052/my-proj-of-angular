@@ -1,4 +1,22 @@
-.chart-container{
+.chart-container {
     width: 400px;
     height: 400px;
+    padding: 20px;
+}
+
+.test-box {
+    width: 100px;
+    height: 100px;
+}
+
+.border-corner {
+    background: linear-gradient(to left, #1890FF, #1890FF) left top no-repeat,
+        linear-gradient(to bottom, #1890FF, #1890FF) left top no-repeat,
+        linear-gradient(to left, #1890FF, #1890FF) right top no-repeat,
+        linear-gradient(to bottom, #1890FF, #1890FF) right top no-repeat,
+        linear-gradient(to left, #1890FF, #1890FF) left bottom no-repeat,
+        linear-gradient(to bottom, #1890FF, #1890FF) left bottom no-repeat,
+        linear-gradient(to left, #1890FF, #1890FF) right bottom no-repeat,
+        linear-gradient(to left, #1890FF, #1890FF) right bottom no-repeat;
+    background-size: 1px 9px, 9px 1px, 1px 9px, 9px 1px;
 }

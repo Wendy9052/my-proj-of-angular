@@ -26,6 +26,27 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 
+import { IconDefinition } from '@ant-design/icons-angular';
+
+import { 
+  AccountBookFill, 
+  AlertFill, 
+  AlertOutline,
+  AliwangwangOutline,
+  FileOutline,
+  UserOutline,
+  LogoutOutline,
+} from '@ant-design/icons-angular/icons';
+
+const icons: IconDefinition[] = [ 
+  AccountBookFill, 
+  AlertOutline, 
+  AlertFill,
+  AliwangwangOutline,
+  FileOutline,
+  UserOutline,
+  LogoutOutline
+];
 
 
 registerLocaleData(zh);
@@ -50,7 +71,8 @@ registerLocaleData(zh);
     NzLayoutModule,
     NzIconModule,
     NzDropDownModule,
-    NzDividerModule
+    NzDividerModule,
+    NzIconModule.forRoot(icons)
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN }
