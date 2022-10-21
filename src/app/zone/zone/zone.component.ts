@@ -77,11 +77,14 @@ export class ZoneComponent implements OnInit {
 
           label: {
             normal: {
-              show: true
+              show: true,
+              textStyle: {
+                color: "#ccc"
+              }
             },
             emphasis: {
-              // show: true
-              show: false,
+              show: true, 
+              // show: false,
               textStyle: {
                 color: "#fff"
               }
@@ -91,11 +94,13 @@ export class ZoneComponent implements OnInit {
             // color: 'red',
             // areaColor: '#fff',
             normal: {
+              color: 'white',
               areaColor: "#0d0059",
               borderColor: "#389dff",
               borderWidth: 0.5
             },
             emphasis: {
+              color: 'pink',
               areaColor: "#17008d",
               shadowOffsetX: 0,
               shadowOffsetY: 0,
