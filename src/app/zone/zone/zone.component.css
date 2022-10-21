@@ -20,3 +20,8 @@
         linear-gradient(to left, #1890FF, #1890FF) right bottom no-repeat;
     background-size: 1px 9px, 9px 1px, 1px 9px, 9px 1px;
 }
+
+.map-container {
+    width: 100%;
+    /* height: 1000px; */
+}
