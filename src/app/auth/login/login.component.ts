@@ -4,6 +4,7 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms
 import { StorageService } from "../../core/services/storage.service";
 import { NavigationService } from "../../core/services/navigation.service";
 
+import { fabric } from "fabric";
 
 interface Person {
   key: string;
@@ -20,6 +21,22 @@ interface Person {
 
 
 export class LoginComponent implements OnInit {
+
+  private canvas!: fabric.Canvas;
+
+  private initFabric(): void {
+    this.canvas = new fabric.Canvas('fabricCanvas', {
+      selection: true,
+      width: 300,
+      height: 200,
+      fireRightClick: true,
+      fireMiddleClick: true,
+      stopContextMenu: true,
+      selectionBorderColor: 'rgb(255, 255, 255)',
+      selectionColor: 'rgba(255, 255, 255, 0.15)',
+      backgroundColor: '#28272C'
+    });
+  }
 
   doLogin(): void {
     this.storage.setToken('20221010')
@@ -47,6 +64,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: UntypedFormBuilder, private storage:StorageService, private nav:NavigationService) { }
 
   ngOnInit(): void {
+    this.initFabric();
     this.validateForm = this.fb.group({
       userName: [null, [Validators.required]],
       password: [null, [Validators.required]],

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import {load} from '@amap/amap-jsapi-loader';
+// import '@amap/amap-jsapi-types';
+
 @Component({
   selector: 'app-cook',
   templateUrl: './cook.component.html',
@@ -17,6 +20,8 @@ export class CookComponent implements OnInit {
   provinceData:any = [];
   cityData:any = [];
   AreaData:any = [];
+
+  amapKey:string = 'e60594318cfac89110b10a477c2f75c8'
 
   provinceChange(value: string): void {
     const province = this.provinceData.find((p:any) => p.label === value)
@@ -50,6 +55,23 @@ export class CookComponent implements OnInit {
     this.isVisible = false;
   }
 
+  // 创建地图方法
+createMap() {
+  load({
+      "key": this.amapKey,   // 申请好的Web端开发者Key，首次调用 load 时必填
+      "version": "2.0",   // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
+      "plugins": []  //插件列表
+  }).then((AMap:any)=>{
+      let amap = new AMap.Map('container',{ // container为容器的id
+          zoom: 15, //初始化地图层级
+          center: [112.5266, 27.91507] //初始化地图中心点
+      });
+  }).catch((e:any) => {
+      console.log(e);
+  })
+}
+
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -57,6 +79,7 @@ export class CookComponent implements OnInit {
       this.provinceData = res
       console.log('selectedCity:',this.selectedCity);
     });
+
   }
 
 }

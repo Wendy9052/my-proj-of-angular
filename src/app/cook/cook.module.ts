@@ -9,11 +9,13 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NzCascaderModule } from 'ng-zorro-antd/cascader';
+import { CookEditAddComponent } from './cook-edit-add/cook-edit-add.component';
 
 
 @NgModule({
   declarations: [
-    CookComponent
+    CookComponent,
+    CookEditAddComponent
   ],
   imports: [
     CommonModule,
